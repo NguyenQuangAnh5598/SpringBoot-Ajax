@@ -13,22 +13,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@CrossOrigin("*")
 @RequestMapping("/category")
+
 public class CategoryController {
 @Autowired
     private ICategoryService categoryService;
 
 @Autowired
     private IBlogService blogService;
-
-@GetMapping("/home")
-    public ModelAndView getAllCategory() {
-    Iterable<Category> categoryList = categoryService.findAll();
-    ModelAndView modelAndView = new ModelAndView("/blog/home");
-    modelAndView.addObject("categoryList",categoryList);
-    return modelAndView;
-}
-
 
 @GetMapping("/list")
     public ResponseEntity<Iterable<Category>> showAllCategory() {

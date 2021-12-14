@@ -85,10 +85,10 @@
         }
 
         function updateBlog() {
-            let id = $('#id').val();
-            let title = $('#title').val();
-            let content = $('#content').val();
-            let category = $('#category').val();
+            let id = $('#editId').val();
+            let title = $('#editTitle').val();
+            let content = $('#editContent').val();
+            let category = $('#editCategory').val();
             let newBlog = {
                 id: id,
                 title: title,
@@ -159,6 +159,7 @@
 </table>
 <form id="editForm">
     <table>
+        <input type="text" id="editId" hidden="hidden">
         <tr>
             <td>Title :</td>
             <td><input type="text" id="editTitle"></td>

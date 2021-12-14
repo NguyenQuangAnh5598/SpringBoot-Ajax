@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@CrossOrigin("*")
 @RequestMapping("/blog")
 public class BlogController {
     @Autowired
@@ -71,12 +72,12 @@ public class BlogController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Blog> updateBlog(@RequestBody Blog blog, @PathVariable Long id) {
-        Optional<Blog> blogOptional = blogService.findByID(id);
-        if (!blogOptional.isPresent()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        blog.setId(blogOptional.get().getId());
+    public ResponseEntity<Blog> updateBlog(@RequestBody Blog blog) {
+//        Optional<Blog> blogOptional = blogService.findByID(id);
+//        if (!blogOptional.isPresent()) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//        blog.setId(blogOptional.get().getId());
         return new ResponseEntity<>(blogService.save(blog), HttpStatus.OK);
     }
 }
